@@ -70,7 +70,7 @@ public class MyAndroidDriver implements DriverSource {
     }
 
     public static void getAdvTopYCoordinate() throws Exception {
-        advTopYCoordinate = getElementById(ILocators.APP_ADV).getLocation().y;
+        advTopYCoordinate = getElementById(androidAutomation.ILocators.APP_ADV).getLocation().y;
     }
 
     public static void swipeDown() throws Exception {
@@ -155,7 +155,7 @@ public class MyAndroidDriver implements DriverSource {
     }
 
     public static AndroidElement getLastAppInRecentApps() throws Exception {
-        List<AndroidElement> titlesListOfRecentApps = driver.findElements(By.xpath(ILocators.EMULATOR_TITLES_OF_RECENT_APPS));
+        List<AndroidElement> titlesListOfRecentApps = driver.findElements(By.xpath(androidAutomation.ILocators.EMULATOR_TITLES_OF_RECENT_APPS));
         AndroidElement lastRecentApp = titlesListOfRecentApps.get(0);
         for (AndroidElement androidElement : titlesListOfRecentApps) {
             if (androidElement.getLocation().getY() > lastRecentApp.getLocation().getY()) {
