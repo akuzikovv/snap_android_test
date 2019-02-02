@@ -1,7 +1,7 @@
 package androidAutomation.pages;
 
 
-import com.google.gson.JsonObject;
+import models.User;
 import org.springframework.web.client.RestTemplate;
 
 import java.io.BufferedReader;
@@ -14,28 +14,21 @@ public class UserController {
     private final String API_BASE = "https://randomuser.me/api/";
 
     public UserController() {
+
         restTemplate = new RestTemplate();
     }
 
-    public User getUserInfo(String email , String timezone, String description) {
-        try {
-            return restTemplate.getForObject(API_BASE + email + timezone + description, User.class);
-        } catch (Exception ex) {
-            throw new RuntimeException(ex);
-        }
+    public void  getUserInfo() {
+        restTemplate = new RestTemplate();
+             restTemplate.getForObject(API_BASE, User.class);
     }
-
-
-
 
 
         public static void call_me() throws Exception {
             String url = "https://randomuser.me/api/";
             URL obj = new URL(url);
             HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-            // optional default is GET
             con.setRequestMethod("GET");
-            //add request header
 //            con.setRequestProperty("User-Agent", "Mozilla/5.0");
 //            int responseCode = con.getResponseCode();
 //            System.out.println("\nSending 'GET' request to URL : " + url);
@@ -48,16 +41,8 @@ public class UserController {
                 response.append(inputLine);
             }
             in.close();
-            //print in String
             System.out.println(response.toString());
-            //Read JSON response and print
-            JsonObject myResponse = new JsonObject();
-            response.toString();
-            System.out.println("result after Reading JSON Response");
-            System.out.println("email- "+myResponse.get("email"));
-            System.out.println("timezone- "+myResponse.get("timezone"));
-            System.out.println("description- "+myResponse.get("description"));
-            System.out.println("name- "+myResponse.get("name"));
+            restTemplate = new RestTemplate();
 
         }
     }
