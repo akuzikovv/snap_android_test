@@ -35,10 +35,10 @@ public class Run {
         JSONArray resultsObject = (JSONArray)parser.parse(jsonObject.get("results").toString());
         JSONObject userDetailsObject = (JSONObject)parser.parse(resultsObject.get(0).toString());
         JSONObject locationObject = (JSONObject)parser.parse(userDetailsObject.get("location").toString());
-        JSONObject timezonObject = (JSONObject)parser.parse(locationObject.get("timezone").toString());
+        JSONObject timezoneObject = (JSONObject)parser.parse(locationObject.get("timezone").toString());
         String name =  userDetailsObject.get("name").toString();
         String email =  userDetailsObject.get("email").toString();
-        String description =  timezonObject.get("description").toString();
+        String description =  timezoneObject.get("description").toString();
         System.out.println("User name: "+ name + "\n" + "User email: "+ email+"\n"+"Description: "+description);
 
     }
