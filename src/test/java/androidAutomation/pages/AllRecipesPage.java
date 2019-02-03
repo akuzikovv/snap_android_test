@@ -23,6 +23,7 @@ public class AllRecipesPage extends PageObject {
     }
 
     public void clickOnTheLoginButton() throws Exception {
+//        wait(5000);
         getElementById(ILocators.loginButton).tap(1, 1);
     }
 
