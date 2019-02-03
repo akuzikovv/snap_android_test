@@ -2,7 +2,7 @@ package androidAutomation.steps.serenity;
 
 import androidAutomation.MyAndroidDriver;
 import androidAutomation.pages.AllRecipesPage;
-import androidAutomation.pages.AndroidPage;
+import androidAutomation.pages.AndroidActions;
 import net.serenitybdd.core.Serenity;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
@@ -14,7 +14,7 @@ import static androidAutomation.MyAndroidDriver.*;
 public class EndUserSteps extends ScenarioSteps {
 
     AllRecipesPage allRecipesPage;
-    AndroidPage androidPage;
+    AndroidActions androidActions;
 
     @Step
     public void waitWhileAppWouldBeLoaded() throws Exception {
@@ -34,8 +34,8 @@ public class EndUserSteps extends ScenarioSteps {
     }
 
     @Step
-    public void clickOnTheGotItButton() throws Exception {
-        allRecipesPage.clickOnTheGotItButton();
+    public void clickOnTheLoginButton() throws Exception {
+        allRecipesPage.clickOnTheLoginButton();
     }
 
     @Step
@@ -62,7 +62,7 @@ public class EndUserSteps extends ScenarioSteps {
 
     @Step
     public void setScreenOrientationAsValue(String arg0) {
-        androidPage.setScreenOrientationAsValue(arg0);
+        androidActions.setScreenOrientationAsValue(arg0);
     }
 
     @Step
@@ -197,7 +197,7 @@ public class EndUserSteps extends ScenarioSteps {
 
     @Step
     public void clickOnTheDeviceNameButton(String arg0) {
-        androidPage.clickOnTheDeviceNameButton(arg0);
+        androidActions.clickOnTheDeviceNameButton(arg0);
     }
 
     @Step
@@ -212,53 +212,53 @@ public class EndUserSteps extends ScenarioSteps {
 
     @Step
     public void checkThatTheUserIsOnTheHomeScreen() throws Exception {
-        Assert.assertTrue("The Apps button isn't enabled.", androidPage.checkThatAppsButtonIsEnabled());
+        Assert.assertTrue("The Apps button isn't enabled.", androidActions.checkThatAppsButtonIsEnabled());
     }
 
     @Step
     public void openNotifications() throws Exception {
-        androidPage.openNotifications();
+        androidActions.openNotifications();
     }
 
     @Step
     public void clickOnTheHeader() throws Exception {
-        androidPage.clickOnTheHeader();
+        androidActions.clickOnTheHeader();
     }
 
     @Step
     public void clickOnTheOptionInTheNotifications(String arg0) throws Exception {
-        androidPage.clickOnTheOptionInTheNotifications(arg0);
+        androidActions.clickOnTheOptionInTheNotifications(arg0);
     }
 
     @Step
     public void setDontDisturbValueAs(String arg0) throws Exception {
-        androidPage.setDontDisturbValueAs(arg0);
+        androidActions.setDontDisturbValueAs(arg0);
     }
 
     @Step
     public void setDontDisturbValueForTime(String arg0) throws Exception {
-        androidPage.setDontDisturbValueForTime(arg0);
+        androidActions.setDontDisturbValueForTime(arg0);
     }
 
     @Step
     public void checkThatNecessaryOptionInNotificationsIsTurnedOn() throws Exception {
-        Assert.assertTrue("Necessary option isn't turned on.", androidPage.checkThatNecessaryOptionInNotificationsIsTurnedOn());
+        Assert.assertTrue("Necessary option isn't turned on.", androidActions.checkThatNecessaryOptionInNotificationsIsTurnedOn());
     }
 
     @Step
     public void checkThatRecentAppsAreOpened() throws Exception {
-        Assert.assertTrue("Recent Apps aren't loaded.", androidPage.checkThatRecentAppsAreEnabled());
+        Assert.assertTrue("Recent Apps aren't loaded.", androidActions.checkThatRecentAppsAreEnabled());
     }
 
     @Step
     public void dropLastApplicationFromRecentApps() throws Exception {
-        androidPage.dropLastApplicationFromRecentApps();
+        androidActions.dropLastApplicationFromRecentApps();
     }
 
     @Step
     public void checkThatThatDroppedAppIsNoLongerExistsInRecentApps() throws Exception {
         Assert.assertTrue("App " + Serenity.getCurrentSession().get("DroppedApp") + " isn't dropped from recent apps.",
-                androidPage.isAppDroppedFromRecentApps());
+                androidActions.isAppDroppedFromRecentApps());
     }
 
     @Step
@@ -268,7 +268,7 @@ public class EndUserSteps extends ScenarioSteps {
 
     @Step
     public void openLastRecentApp() throws Exception {
-        androidPage.openLastRecentApp();
+        androidActions.openLastRecentApp();
     }
 
     @Step
@@ -278,7 +278,7 @@ public class EndUserSteps extends ScenarioSteps {
 
     @Step
     public void turnWiFi(String arg0) throws Exception {
-        androidPage.turnWiFi(arg0);
+        androidActions.turnWiFi(arg0);
     }
 
     @Step
@@ -288,38 +288,38 @@ public class EndUserSteps extends ScenarioSteps {
 
     @Step
     public void printDeviceSettings() throws Exception {
-        androidPage.printDeviceSettings();
+        androidActions.printDeviceSettings();
     }
 
     @Step
     public void openNotificationsOnSamsungS5() throws Exception {
-        androidPage.openNotificationsOnSamsungS5();
+        androidActions.openNotificationsOnSamsungS5();
     }
 
     @Step
     public void openAllSettingsInNotificationsOnSamsungS5() throws Exception {
-        androidPage.openAllSettingsInNotificationsOnSamsungS5();
+        androidActions.openAllSettingsInNotificationsOnSamsungS5();
     }
 
     @Step
     public void turnDonTDisturbOptionOnSamsungS5(String arg0) throws Exception {
-        androidPage.turnDonTDisturbOptionOnSamsungS5(arg0);
+        androidActions.turnDonTDisturbOptionOnSamsungS5(arg0);
     }
 
     @Step
     public void checkThatNecessaryOptionInNotificationsIsTurnedOnOnSamsungS5() throws Exception {
-        Assert.assertTrue("Necessary option isn't turned on.", androidPage.checkThatNecessaryOptionInNotificationsIsTurnedOnOnSamsungS5());
+        Assert.assertTrue("Necessary option isn't turned on.", androidActions.checkThatNecessaryOptionInNotificationsIsTurnedOnOnSamsungS5());
     }
 
     @Step
     public void checkThatThatDroppedAppIsNoLongerExistsInRecentAppsOnSamsungS5() throws Exception {
         Assert.assertTrue("App " + Serenity.getCurrentSession().get("DroppedApp") + " isn't dropped from recent apps.",
-                androidPage.isAppDroppedFromRecentAppsOnSamsungS5());
+                androidActions.isAppDroppedFromRecentAppsOnSamsungS5());
     }
 
     @Step
     public void turnWiFiOnSamsungS5(String arg0) throws Exception {
-        androidPage.turnWiFiOnSamsungS5(arg0);
+        androidActions.turnWiFiOnSamsungS5(arg0);
     }
 
     @Step
@@ -334,11 +334,11 @@ public class EndUserSteps extends ScenarioSteps {
 
     @Step
     public void turnOffDonTDisturbOption() throws Exception {
-        androidPage.turnOffDonTDisturbOption();
+        androidActions.turnOffDonTDisturbOption();
     }
 
     @Step
     public void clickOnThePhoneButton() throws Exception {
-        androidPage.clickOnThePhoneButton();
+        androidActions.clickOnThePhoneButton();
     }
 }

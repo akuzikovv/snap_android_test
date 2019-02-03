@@ -22,8 +22,8 @@ public class AllRecipesPage extends PageObject {
         waitFor(ExpectedConditions.visibilityOf(getElementById(ILocators.APP_WELCOME_LABEL)));
     }
 
-    public void clickOnTheGotItButton() throws Exception {
-        getElementById(ILocators.APP_DONE_BUTTON).tap(1, 1);
+    public void clickOnTheLoginButton() throws Exception {
+        getElementById(ILocators.loginButton).tap(1, 1);
     }
 
     public void waitForLoadingMainPage() throws Exception {

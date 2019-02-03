@@ -10,7 +10,6 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.nio.file.Paths;
 import java.util.List;
 
 public class MyAndroidDriver implements DriverSource {
@@ -20,19 +19,21 @@ public class MyAndroidDriver implements DriverSource {
     @Override
     public AndroidDriver newDriver() {
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("appium-version", "1.6.0");
+//        capabilities.setCapability("appium-version", "1.10.0");
+
         capabilities.setCapability("platformName", "Android");
-        capabilities.setCapability("deviceName", "Nexus 5");
+        capabilities.setCapability("deviceName", "Galaxy Note8");
         capabilities.setCapability("platformVersion", "8.0");
 
-        String userDir = System.getProperty("user.dir");
-        String localApp = "Snapchat.apk";
-        String appPath = Paths.get(userDir, localApp).toAbsolutePath().toString();
-        capabilities.setCapability("app", appPath);
-        capabilities.setCapability("appPackage", "com.allrecipes.spinner.free");
-        capabilities.setCapability("appActivity", "com.allrecipes.spinner.free.MainActivity");
+//        String userDir = System.getProperty("user.dir");
+//        String localApp = "Snapchat";
+//        String appPath = "/data/app/";
+//        capabilities.setCapability("appText", "Snapchat");
+        capabilities.setCapability("appPackage", "com.snapchat.android");
+        capabilities.setCapability("appActivity", "com.snapchat.android.app.main.deeplink.core.DeepLinkActivity");
         try {
             driver = new AndroidDriver(new URL("http://0.0.0.0:4723/wd/hub"), capabilities);
+//            driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
@@ -70,7 +71,7 @@ public class MyAndroidDriver implements DriverSource {
     }
 
     public static void getAdvTopYCoordinate() throws Exception {
-        advTopYCoordinate = getElementById(androidAutomation.ILocators.APP_ADV).getLocation().y;
+        advTopYCoordinate = getElementById(ILocators.APP_ADV).getLocation().y;
     }
 
     public static void swipeDown() throws Exception {

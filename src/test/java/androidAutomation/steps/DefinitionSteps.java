@@ -15,13 +15,13 @@ public class DefinitionSteps {
     @Given("^wait while app would be loaded$")
     public void waitWhileAppWouldBeLoaded() throws Throwable {
         steps.getDimensions();
-        steps.getAppTopYCoordinates();
+//        steps.getAppTopYCoordinates();
 //        steps.waitWhileAppWouldBeLoaded();
     }
 
-    @When("^click on the Got it! button$")
-    public void clickOnTheGotItButton() throws Throwable {
-        steps.clickOnTheGotItButton();
+    @When("^click on the Login button$")
+    public void clickOnTheLoginButton() throws Throwable {
+        steps.clickOnTheLoginButton();
     }
 
     @And("^wait for loading main page$")

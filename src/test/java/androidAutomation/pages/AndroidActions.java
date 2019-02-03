@@ -15,7 +15,7 @@ import java.io.InputStreamReader;
 
 import static androidAutomation.MyAndroidDriver.*;
 
-public class AndroidPage extends PageObject {
+public class AndroidActions extends PageObject {
 
     public void setScreenOrientationAsValue(String arg0) {
         switch (arg0) {
