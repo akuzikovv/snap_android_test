@@ -24,7 +24,7 @@ public class MyAndroidDriver implements DriverSource {
 //        String appPath = "/data/app/";
 //        capabilities.setCapability("appText", "Snapchat");
         capabilities.setCapability("appPackage", "com.snapchat.android");
-        capabilities.setCapability("appActivity", "com.snapchat.android.app.main.deeplink.core.DeepLinkActivity");
+        capabilities.setCapability("appActivity", "com.snapchat.android.LandingPageActivity");
         try {
             driver = new AndroidDriver(new URL("http://0.0.0.0:4723/wd/hub"), capabilities);
         } catch (MalformedURLException e) {
@@ -46,7 +46,7 @@ public class MyAndroidDriver implements DriverSource {
         public static int BACK = 4;
         public static int BACKSPACE = 67;
         public static int DEL = 67;
-        public static int ENTER = 66;
+//        public static int ENTER = 66;
         public static int HOME = 3;
         public static int MENU = 82;
         public static int SETTINGS = 176;
