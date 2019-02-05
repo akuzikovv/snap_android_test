@@ -3,14 +3,11 @@ package androidAutomation;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import net.thucydides.core.webdriver.DriverSource;
-import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.NotFoundException;
 import org.openqa.selenium.remote.DesiredCapabilities;
-
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.List;
 
 public class MyAndroidDriver implements DriverSource {
 
@@ -19,12 +16,9 @@ public class MyAndroidDriver implements DriverSource {
     @Override
     public AndroidDriver newDriver() {
         DesiredCapabilities capabilities = new DesiredCapabilities();
-//        capabilities.setCapability("appium-version", "1.10.0");
-
         capabilities.setCapability("platformName", "Android");
         capabilities.setCapability("deviceName", "Galaxy Note8");
         capabilities.setCapability("platformVersion", "8.0");
-
 //        String userDir = System.getProperty("user.dir");
 //        String localApp = "Snapchat";
 //        String appPath = "/data/app/";
@@ -33,13 +27,11 @@ public class MyAndroidDriver implements DriverSource {
         capabilities.setCapability("appActivity", "com.snapchat.android.app.main.deeplink.core.DeepLinkActivity");
         try {
             driver = new AndroidDriver(new URL("http://0.0.0.0:4723/wd/hub"), capabilities);
-//            driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
         return driver;
     }
-
 
     @Override
     public boolean takesScreenshots() {
@@ -70,9 +62,7 @@ public class MyAndroidDriver implements DriverSource {
         appTopYCoordinate = getElementByClassName("android.widget.FrameLayout").getLocation().y;
     }
 
-    public static void getAdvTopYCoordinate() throws Exception {
-        advTopYCoordinate = getElementById(ILocators.APP_ADV).getLocation().y;
-    }
+
 
     public static void swipeDown() throws Exception {
         driver.swipe(screenDimensions.getWidth() / 2, screenDimensions.getHeight() / 2,
@@ -155,16 +145,7 @@ public class MyAndroidDriver implements DriverSource {
         throw new Exception("Element was not found by classname after 10 swipes.");
     }
 
-    public static AndroidElement getLastAppInRecentApps() throws Exception {
-        List<AndroidElement> titlesListOfRecentApps = driver.findElements(By.xpath(androidAutomation.ILocators.EMULATOR_TITLES_OF_RECENT_APPS));
-        AndroidElement lastRecentApp = titlesListOfRecentApps.get(0);
-        for (AndroidElement androidElement : titlesListOfRecentApps) {
-            if (androidElement.getLocation().getY() > lastRecentApp.getLocation().getY()) {
-                lastRecentApp = androidElement;
-            }
-        }
-        return lastRecentApp;
-    }
+
 
 
 }

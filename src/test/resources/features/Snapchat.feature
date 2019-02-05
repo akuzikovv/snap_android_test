@@ -1,13 +1,17 @@
 Feature: Simple test for Android
 
   Scenario: 02.001 Testing
-    Given wait while app would be loaded
-    When click on the Login button
+    Given Wait while app would be loaded
+    When Click on the Login button
+    When Type email to the email field
+    When Type password to the password field
+    When Click on the Sign in button
+    When Click on Friends button
+    When Click on the new chat button
+    When Enter the "Geny-tost" receiver
+    When Click on the chat button
+    When Enter text message
+    When Click send button
 
 
-#    And wait for loading main page
-#    When set screen orientation as "LANDSCAPE"
-#    When click on the title of the "Greek Lemon Chicken and Potato Bake" product
-#    When wait while product details page would be loaded
-#    Then make sure that you are on the page with correct dish
-#    And set screen orientation as "PORTRAIT"
+#  send some text message to 'sol_marl' user
