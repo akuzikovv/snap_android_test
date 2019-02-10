@@ -27,7 +27,6 @@ public class JsonParse {
            accountObject = (JSONObject) parser.parse(jsonObject.get("account").toString());
           login = accountObject.get("login").toString();
           password = accountObject.get("password").toString();
-//        System.out.println("Login: " + login + "\n" + "Password: " + password);
     }
 
     public static void parseJson() throws IOException, ParseException {
@@ -49,6 +48,5 @@ public class JsonParse {
         JSONObject timezoneObject = (JSONObject) parser.parse(locationObject.get("timezone").toString());
          email = userDetailsObject.get("email").toString();
          description = timezoneObject.get("description").toString();
-//        System.out.println("User email: " + email + "\n" + "Description: " + description);
     }
 }

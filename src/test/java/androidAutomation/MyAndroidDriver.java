@@ -2,10 +2,12 @@ package androidAutomation;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
+import io.appium.java_client.remote.AndroidMobileCapabilityType;
 import net.thucydides.core.webdriver.DriverSource;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.NotFoundException;
 import org.openqa.selenium.remote.DesiredCapabilities;
+
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -19,12 +21,14 @@ public class MyAndroidDriver implements DriverSource {
         capabilities.setCapability("platformName", "Android");
         capabilities.setCapability("deviceName", "Galaxy Note8");
         capabilities.setCapability("platformVersion", "8.0");
-//        String userDir = System.getProperty("user.dir");
-//        String localApp = "Snapchat";
-//        String appPath = "/data/app/";
-//        capabilities.setCapability("appText", "Snapchat");
         capabilities.setCapability("appPackage", "com.snapchat.android");
         capabilities.setCapability("appActivity", "com.snapchat.android.LandingPageActivity");
+        capabilities.setCapability(AndroidMobileCapabilityType.ENABLE_PROFILING_CAPABILITY,true);
+        capabilities.setCapability("autoAcceptAlerts", "true");
+        capabilities.setCapability("android.permission.READ_PROFILE","PROTECTION_NORMAL");
+        capabilities.setCapability("android.permission.CAMERA","PROTECTION_NORMAL");
+        capabilities.setCapability("android.permission.RECORD_AUDIO","PROTECTION_NORMAL");
+        capabilities.setCapability("android.permission.READ_EXTERNAL_STORAGE","PROTECTION_NORMAL");
         try {
             driver = new AndroidDriver(new URL("http://0.0.0.0:4723/wd/hub"), capabilities);
         } catch (MalformedURLException e) {
@@ -117,6 +121,7 @@ public class MyAndroidDriver implements DriverSource {
         for (int i = 0; i < 10; i++) {
             try {
                 return (AndroidElement) driver.findElementByAndroidUIAutomator("new UiSelector().resourceId(\"" + id + "\").instance(0);");
+
             } catch (NotFoundException e) {
                 if (i == 0) {
                     System.out.println("Without any swipes element hasn't been found.");
