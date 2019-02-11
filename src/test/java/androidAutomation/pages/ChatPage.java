@@ -2,7 +2,10 @@ package androidAutomation.pages;
 
 import androidAutomation.ILocators;
 import androidAutomation.MyAndroidDriver;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidKeyCode;
 import net.serenitybdd.core.pages.PageObject;
+import net.serenitybdd.screenplay.actions.Enter;
 
 import static androidAutomation.MyAndroidDriver.driver;
 import static androidAutomation.pages.JsonParse.*;
@@ -11,7 +14,7 @@ import static androidAutomation.MyAndroidDriver.getElementById;
 public class ChatPage extends PageObject {
 
     public void enterTheReceiver(String arg0) throws Exception {
-        getElementById(ILocators.Receiver).sendKeys(arg0);
+        getElementById(ILocators.Receiver).sendKeys(arg0+"\n");
     }
 
     public void clickOnTheChatButton() throws Exception {
@@ -25,7 +28,7 @@ public class ChatPage extends PageObject {
     }
 
     public void clickSendButton() throws Exception{
-        driver.pressKeyCode(MyAndroidDriver.AndroidKeys.ENTER);
+//        driver.pressKeyCode(MyAndroidDriver.AndroidKeys.ENTER);
         waitABit(1000);
     }
 }

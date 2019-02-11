@@ -8,10 +8,7 @@ Feature: Simple test for Android
     When Click on the Sign in button
     When Click on Friends button
     When Click on the new chat button
-    When Enter the "Geny-tost" receiver
+    When Enter the "entered the receiver name" receiver
     When Click on the chat button
     When Enter text message
     When Click send button
-
-
-#  send some text message to 'sol_marl' user
