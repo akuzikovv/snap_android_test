@@ -6,7 +6,6 @@ import androidAutomation.pages.FriendsPage;
 import androidAutomation.pages.LoginPage;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
-
 import static androidAutomation.MyAndroidDriver.*;
 
 
