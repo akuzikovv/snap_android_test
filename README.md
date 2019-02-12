@@ -1,5 +1,15 @@
 # Testing Snapchat application on Android platform via Appium
 
+Scenario:
+- Open application
+- Login (get credentials from json file)
+- Open friends page
+- Create new chat
+- Enter receiver
+- Start chat
+- Get "email" and "timezone.description" values from https://randomuser.me/api/ 
+- Send message with parsed values to user
+
 
 # How to setup
 Install the next instruments:
